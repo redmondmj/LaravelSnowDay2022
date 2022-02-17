@@ -13,13 +13,13 @@ This year we will introduce the option of rocking docker containers, but before 
 1. CLI of Choice : WSL2 (Windows Reccomended), Powershell (Windows Native) or Terminal/iTerm (MacOS)
 2. Package Manager : APT (Ubuntu WSL2), Chocolatey (Windows), HomeBrew (MacOS)
 3. PHP CLI - this will be included in the docker container, but you might also want it local
-4. Composer - PHP Package manager, we'll use this to get all the stuff we need. https://getcomposer.org/download/
+4. Composer - PHP Package manager, we'll use this to get all the stuff we need. 
 5. Node.JS - we'll need the dreaded npm inatall and node modules
 
 You need to be able to run these in your terminal. I'm using WSL2, but any method should suffice as long as they are available in the $path.
 
 ## Up and Running
-## Option 1 : Docker Remote Containers using Laravel Sail
+### Option 1 : Docker Remote Containers using Laravel Sail
 This is pretty slick. You just need docker desktop running in WSL2.
 1. Ensure you have enabled WSL2 integration for your distro [MS Overview](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers)
     - Check distros and version`wsl -l -v`
@@ -31,12 +31,18 @@ This is pretty slick. You just need docker desktop running in WSL2.
 3. Set Sail?
     - `cd snow-day && /vendor/bin/sail up` 
     - or with alias `sail up`
+4. Code. VS Code.
+    - `code .`
 
-## Option 2 : Local
+### Option 2 : Local
 This may require some troubleshooting. It's not uncommon to have to resolve issues with dependancies.
 
 1. Launch WSL2 Bash, PS or Terminal.
-2. Install stuff:
+2. Install PHP CLI:
     * `sudo apt install php8...`
     * `choco install php`
     * `brew install php`
+3. Install 
+    - WSL: ~~`sudo apt install composer`~~ **apt packege is outdated** at time of writting use [Current Composer](https://getcomposer.org/download/) 
+    - Chocolatey: `choco install composer`
+    - Homebrew: `brew install composer`
