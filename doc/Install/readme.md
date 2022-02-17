@@ -29,7 +29,7 @@ This is pretty slick. You just need docker desktop running in WSL2.
     - replace "snow-day" with your app's name
     - (optional) create an alias `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'`
 3. Set Sail?
-    - `cd snow-day && /vendor/bin/sail up` 
+    - `cd snow-day && ./vendor/bin/sail up` 
     - or with alias `sail up`
 4. Code. VS Code.
     - `code .`
