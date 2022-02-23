@@ -2,21 +2,41 @@
  - edit .env as follows:
     - `DB_CONNECTION=sqlite`
  - create file database\database.sqlite
- - Before we migrate, let’s catch one bug before it throws an error, go to App/Providers/AppServiceProvider.php
-and add `Schema::defaultstringLength(191);` to the boot function, also add `use Illuminate\Support\Facades\Schema;` to the top.
+ - Migrate! `php artisan migrate` to wipe and reload `php artisan migrate:fresh`
+ - remember... if you're using docker re[;ace `php` with `sail`
+ - add the alias if needed `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'`
 
 ## Building this Demo App
 
 ### Add Auth
-`composer require laravel/ui`
-`php artisan ui vue --auth`
+- add the ui installer `composer require laravel/ui`
+- add the Auth ui `php artisan ui vue --auth`
+- test it! you should now be able to register a user and log in. that was easy!
 
-### Edit Registration form as needed, i.e.:
+### Add "School" to user registration/user
+We'll need to make some changes to each of the following files:
 `\resources\views\auth\register.blade.php`
 `\app\Http\Controllers\Auth\RegisterController.php`
 `\app\User.php`
 `\database\migrations\2014_10_12_000000_create_users_table.php`
 
+A few helpful utilities:
+- to check existing routes - `php artisan route:list`
+- to access the database cli - `php artisan db`
+- to seed the database - `php artisan db:seed --class=UserSeeder`
+- to run full seed, first update DatabaseSeeder.php:
+    - add `$this->call(UserTableSeeder::class);`
+- then just run `php artisan db:seed`
+- or migrate AND seed `php artisan migrate:fresh --seed`
+- add a user manually? `php artisan tinker`
+    - build a user `$user = new App\Models\User;`
+    - add attribute `$user->name = "itstudent";`
+    - add attribute `$user->school = "GBHS";`
+    - add attribute `$user->email = "students@email.com";`
+    - set password `$user->password=bcrypt('123456');`
+    - save user `$user->save();`
+___
+Comming soon...
 ### Add the voting View & Controller
 
 `php artisan make:controller VoteController`
