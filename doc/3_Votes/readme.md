@@ -16,20 +16,20 @@ You can verify these:
 
 Ok, now we can hit http://localhost/vote/create we need a form to display. These go in Resources/Views/Auth. We'll make a new "vote" folder for all our vote related views. 
 
-You'll find the [Create Vote blade file here](https://github.com/redmondmj/LaravelSnowDay2022/blob/main/views/auth/register.blade.php)!
+You'll find the [Create Vote blade file here](https://github.com/redmondmj/LaravelSnowDay2022/blob/main/resources/views/auth/vote/create.blade.php)!
 
 ## Add Controller and Model
 Well... our Post is looking for a store function in our controller, but we don't even have a controller. Let's make one:
 
 `sail artisan make:controller VoteController`
 
-Update the controller as follows like this [HTTP/Controllers/VoteController.php]() 
+Update the controller as follows like this [HTTP/Controllers/VoteController.php](https://github.com/redmondmj/LaravelSnowDay2022/blob/main/app/Http/Controllers/VoteController.php) 
 
 Adding a Model is just as easy:
 
 `sail artisan make:model Vote` (actually we could have done both at once using the -M switch on the controller)
 
-Add some fillable feilds to [app/Models/Vote.php]()
+Add some fillable feilds to [app/Models/Vote.php](https://github.com/redmondmj/LaravelSnowDay2022/blob/main/app/Models/Vote.php)
 
 
 ## Database Migration
@@ -38,7 +38,7 @@ Amazing! Now we just need a table. To make that we need a migration file:
 
 `sail artisan make:migration create_votes_table`
 
-We define the fields by populating the [2022_02_24_172613_create_vote_table.php]()
+We define the fields by populating the [2022_02_24_172613_create_vote_table.php](https://github.com/redmondmj/LaravelSnowDay2022/blob/main/database/migrations/2022_02_24_172613_create_vote_table.php)
 
 Like this:
 
