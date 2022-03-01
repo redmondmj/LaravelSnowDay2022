@@ -1,3 +1,4 @@
+# Initial Config
 ## Setup database
  - edit .env as follows:
     - `DB_CONNECTION=sqlite`
@@ -7,7 +8,6 @@
  - add the alias if needed `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'`
 
 ## Building this Demo App
-
 ### Add Auth
 - add the ui installer `composer require laravel/ui`
 - add the Auth ui `php artisan ui vue --auth`
@@ -20,12 +20,18 @@ We'll need to make some changes to each of the following files:
 `\app\User.php`
 `\database\migrations\2014_10_12_000000_create_users_table.php`
 
-A few helpful utilities:
+### Add a seeder for the Users Table
+- make the file `php artisan make:seed UserTableSeeder`
+- populate the `run()` function to add users
+- remember to to update the namespace for required resources!
+- add your seeder to `run()` in DatabaseSeeder.php
+    - add `$this->call(UserTableSeeder::class);`
+
+### A few helpful utilities:
 - to check existing routes - `php artisan route:list`
 - to access the database cli - `php artisan db`
 - to seed the database - `php artisan db:seed --class=UserSeeder`
 - to run full seed, first update DatabaseSeeder.php:
-    - add `$this->call(UserTableSeeder::class);`
 - then just run `php artisan db:seed`
 - or migrate AND seed `php artisan migrate:fresh --seed`
 - add a user manually? `php artisan tinker`
