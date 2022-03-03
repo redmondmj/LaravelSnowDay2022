@@ -39,3 +39,25 @@ Route::get('api', function (){
     return ['name' => 'Snow-Day', 'vote_count' => ''];
 });
 
+//Display Vote Results
+Route::get('/vote/show', function () {
+    // TODO: Perhaps there is a more efficient way to handle this data?
+    $data['votes'] = DB::table('votes')->get();
+    $data['yesVotes'] = DB::table('votes')->where('vote', 1)->count('vote');
+    $data['noVotes'] = DB::table('votes')->where('vote', 0)->count('vote');
+
+    //dd($data);
+    //return $votes;
+    return view('vote.results', ['data' => $data]);
+
+});
+
+//Show individual vote
+Route::get('/vote/show/{id}', function ($id) {
+
+    $vote = DB::table('votes')->find($id);
+
+   //dd($vote);
+
+   return view('vote.single', ['vote' => $vote]);
+});
