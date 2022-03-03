@@ -1,5 +1,7 @@
 # Adding Votes
 
+Incremental files can be found in this folder. Using these files best demonstrates incremental progress of this tutorial. Links below will redirect to the completed versions for the final app.
+
 ## Set Up the Routes
 Add a route for the create vote form to web.php:
 
