@@ -61,3 +61,6 @@ Route::get('/vote/show/{id}', function ($id) {
 
    return view('vote.single', ['vote' => $vote]);
 });
+
+// Add routes for User resource controller
+Route::resource('/users', 'App\Http\Controllers\Admin\UserController', ['except'=>['show', 'create', 'store']]);
