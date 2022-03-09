@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-3">
+            <example-component></example-component>
+            <chart-component :yesvotes="{!! json_encode($data['yesVotes']) !!}" :novotes="'{{ $data['noVotes'] }}'">
+            </chart-component>
             <!-- TODO: Wouldn't it make sense to move this table to a Vue Component as well? -->
             <div class="card mb-3">
                 <div class="card-header">Votes</div>

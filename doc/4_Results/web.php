@@ -40,7 +40,7 @@ Route::get('api', function (){
 });
 
 //Display Vote Results
-Route::get('/vote/show', function () {
+Route::get('/vote/results', function () {
     // TODO: Perhaps there is a more efficient way to handle this data?
     $data['votes'] = DB::table('votes')->get();
     $data['yesVotes'] = DB::table('votes')->where('vote', 1)->count('vote');
