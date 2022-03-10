@@ -53,6 +53,7 @@ Route::get('/vote/show', function () {
 });
 
 //Show individual vote
+// TODO: Move this to a controller
 Route::get('/vote/show/{id}', function ($id) {
 
     $vote = DB::table('votes')->find($id);

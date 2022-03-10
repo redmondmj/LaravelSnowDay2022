@@ -14,7 +14,7 @@
                         @else
                             <p>{{ $vote->name }} is pretty smart. Might not be a snow day tomorrow.</p>
                         @endif
-
+                        <!-- TODO: Can we add a link to delete this vote>? -->
                         {{-- <button href="{{ URL::previous() }}" class="btn btn-primary" type="button">Go Back!</button> --}}
                         <a href="{{ URL::previous() }}" class="btn btn-info text-white" role="button">Go Back</a>
                     </div>
