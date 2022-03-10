@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Role;
 
-class UserSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
     {
         User::truncate();
         
-        \DB::table('role_user')->truncate();
+        DB::table('role_user')->truncate();
 
         $adminRole = Role::where('name', 'admin')->first();
         $authorRole = Role::where('name', 'author')->first();

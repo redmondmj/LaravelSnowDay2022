@@ -63,6 +63,8 @@ Route::get('/vote/show/{id}', function ($id) {
 });
 
 // Add routes for User resource controller
+// First we add an admin prefix and auth middleware to check for the role.
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function() {
+    // Now we add the routes
     Route::resource('/users', 'UserController', ['except'=>['show', 'create', 'store']]);
 });
